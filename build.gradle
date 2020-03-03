@@ -14,6 +14,13 @@ plugins {
     id 'application'
 }
 
+
+// Experiment with custom JMH Source Set
+sourceSets {
+    jmh
+}
+
+
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
@@ -29,6 +36,10 @@ dependencies {
 
     // Use JUnit Jupiter Engine for testing.
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.2'
+
+    jmhImplementation project
+    jmhImplementation 'org.openjdk.jmh:jmh-core:1.19'
+    jmhAnnotationProcessor 'org.openjdk.jmh:jmh-generator-annprocess:1.19'
 }
 
 application {
@@ -40,3 +51,4 @@ test {
     // Use junit platform for unit tests
     useJUnitPlatform()
 }
+
